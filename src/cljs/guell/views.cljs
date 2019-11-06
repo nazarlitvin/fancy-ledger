@@ -5,7 +5,10 @@
    ))
 
 (defn main-panel []
-  (let [name (re-frame/subscribe [::subs/name])]
+  (let [page (re-frame/subscribe [::subs/page])]
     [:div
-     [:h1 "Hello from " @name]
+     [:h1 "Hello from " @page]
+     [:div [:a {:href "#/"} "go to Home page"]]
+     [:div [:a {:href "#/about"} "go to About page"]]
+     [:div [:a {:href "#/profile"} "go to Profile page"]]
      ]))

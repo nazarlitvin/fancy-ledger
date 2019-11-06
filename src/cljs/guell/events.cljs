@@ -8,3 +8,8 @@
  ::initialize-db
  (fn [_ _]
    db/default-db))
+
+(re-frame/reg-event-db
+ :visit-page
+ (fn [db [_ page]]
+   (assoc db :page page)))
