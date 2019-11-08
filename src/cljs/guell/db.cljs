@@ -3,4 +3,5 @@
 (def default-db
   {
    :page "home"
+   :records []
    })

@@ -1,5 +1,6 @@
 (ns guell.events
   (:require
+   [clojure.string :as str]
    [re-frame.core :as re-frame]
    [re-frame-readfile-fx.core]
    [guell.db :as db]
@@ -23,12 +24,13 @@
                :on-success [:file-parse-success]
                :on-error [:file-parse-failure]}}))
 
-(re-frame/reg-event-fx
+(re-frame/reg-event-db
  :file-parse-success
- (fn [_ [_ response]]
-   (.log js/console response)))
+ (fn [db [_ data]]
+   (let [records (str/split (first data) #"\n\n")]
+     (assoc db :records records))))
 
-(re-frame/reg-event-fx
+(re-frame/reg-event-db
  :file-parse-failure
  (fn [_ [_ error]]
    (.log js/console "error" error)))

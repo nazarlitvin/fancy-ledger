@@ -5,7 +5,9 @@
    ))
 
 (defn main-panel []
-  (let [page (re-frame/subscribe [::subs/page])]
+  (let [
+        page (re-frame/subscribe [::subs/page])
+        records (re-frame/subscribe [::subs/records])]
     [:div
      [:h1 "Hello from " @page]
      [:div [:a {:href "#/"} "go to Home page"]]
@@ -14,4 +16,8 @@
      [:input {
               :type "file"
               :accept ".dat"
-              :on-change (fn [e] (re-frame/dispatch [:file-selected (aget e.target.files "0")]))}]]))
+              :on-change (fn [e] (re-frame/dispatch [:file-selected (aget e.target.files "0")]))}]
+     [:ul
+      (for [record @records]
+        [:li record])]
+     ]))

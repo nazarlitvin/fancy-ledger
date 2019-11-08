@@ -6,3 +6,8 @@
  ::page
  (fn [db _]
    (:page db)))
+
+(re-frame/reg-sub
+ ::records
+ (fn [db _]
+   (:records db)))
