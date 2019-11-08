@@ -6,6 +6,7 @@
                  [thheller/shadow-cljs "2.8.69"]
                  [reagent "0.8.1"]
                  [re-frame "0.10.9"]
+                 [re-frame-readfile-fx "1.0.0-beta"]
                  [clj-commons/secretary "1.2.4"]]
 
   :plugins [
