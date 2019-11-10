@@ -7,6 +7,7 @@
                  [reagent "0.8.1"]
                  [re-frame "0.10.9"]
                  [re-frame-readfile-fx "1.0.0-beta"]
+                 [instaparse "1.4.10"]
                  [clj-commons/secretary "1.2.4"]]
 
   :plugins [
