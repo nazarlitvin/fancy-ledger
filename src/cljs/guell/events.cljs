@@ -3,6 +3,7 @@
    [clojure.string :as str]
    [re-frame.core :as re-frame]
    [re-frame-readfile-fx.core]
+   [guell.parser :as parser]
    [guell.db :as db]
    ))
 
@@ -28,7 +29,7 @@
  :file-parse-success
  (fn [db [_ data]]
    (let [records (str/split (first data) #"\n\n")]
-     (assoc db :records records))))
+     (assoc db :records (parser/parse-journal records)))))
 
 (re-frame/reg-event-db
  :file-parse-failure
